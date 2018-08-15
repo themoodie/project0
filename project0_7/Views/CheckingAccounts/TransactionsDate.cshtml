@@ -1,0 +1,90 @@
+﻿@model project0_7.Models.CTransactionsDateViewModel
+
+@{
+    ViewBag.Title = "Transactions by Date";
+}
+
+<h2>Transactions by Date</h2>
+@using (Html.BeginForm(new { id = Model.CheckingAccountId }))
+{
+    @Html.AntiForgeryToken()
+
+
+    <div>
+        <h4>Checking Transactions: Date View Model</h4>
+        <hr />
+
+        <h5>Checking Account: @Model.CheckingAccountId</h5>
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Start)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Start)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.End)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.End)
+            </dd>
+
+        </dl>
+        <table>
+            <tr>
+                <td>
+                    Transaction Id
+                </td>
+                <td>
+                    Date
+                </td>
+                <td>
+                    Amount
+                </td>
+                <td>
+                    Description
+                </td>
+            </tr>
+            @foreach (var transaction in @Model.Transactions)
+            {
+                <tr>
+                    <td>@transaction.Id</td>
+                    <td>@transaction.DateTime</td>
+                    <td>@transaction.Amount</td>
+                    <td>@transaction.Description</td>
+                </tr>
+            }
+        </table>
+        <div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Start, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Start, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Start, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.End, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.End, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.End, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Submit" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<p>
+    @Html.ActionLink("View", "Details", new { id = Model.CheckingAccountId })<br />
+    @Html.ActionLink("Back to Checking Accounts Home", "Index")<br />
+</p>

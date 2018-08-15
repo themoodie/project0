@@ -1,0 +1,6 @@
+/.vs
+/.packages
+/TextFile1.txt
+/project0_7/bin
+/project0_7/obj
+/project0_7/App_Data

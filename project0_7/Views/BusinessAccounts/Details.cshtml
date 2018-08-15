@@ -1,0 +1,56 @@
+﻿@model project0_7.BusinessAccount
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Business Account: @Model.Id</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OpenDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OpenDate)
+        </dd>
+
+
+        @if (!Model.Active)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.CloseDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CloseDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Active)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Active)
+            </dd>
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Balance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Balance)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) <br />*@
+    @Html.ActionLink("Transactions Last 10", "Transactions", new { id = Model.Id })<br />
+    @Html.ActionLink("Transactions by Date", "TransactionsDate", new { id = Model.Id })<br />
+    @Html.ActionLink("Back to List", "Index")<br />
+</p>

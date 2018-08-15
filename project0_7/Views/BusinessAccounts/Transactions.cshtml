@@ -1,0 +1,32 @@
+﻿@model project0_7.Models.CTransactionsViewModel
+@{
+    ViewBag.Title = "Transactions - Last 10";
+}
+
+<div>
+    <h1>Business Account @Model.CheckingAccount.Id</h1>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Date
+        </th>
+        <th>
+            Amount
+        </th>
+        <th>
+            Description
+        </th>
+
+    </tr>
+    @foreach (var Transaction in @Model.Transactions)
+    {
+        <tr>
+            <td>@Transaction.DateTime</td>
+            <td>@Transaction.Amount</td>
+            <td>@Transaction.Description</td>
+        </tr>
+    }
+</table>
+
+@Html.ActionLink("Back to Account", "Details", new { id = Model.CheckingAccount.Id })

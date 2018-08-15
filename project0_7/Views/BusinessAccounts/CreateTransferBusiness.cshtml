@@ -1,0 +1,59 @@
+﻿@model project0_7.Models.CreateTransferViewModel
+@{
+    ViewBag.Title = "Create Transfer - Business";
+}
+
+<h2>Create Transfer - Business</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @if (ViewBag.BusinessAccounts != null)
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.BusinessAccounts, "Target Business Account", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("BusinessAccounts", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.BusinessAccounts, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        @if (ViewBag.CheckingAccount != null)
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.CheckingAccounts, "Target Checking Account", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Checking Accounts", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CheckingAccounts, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        @if (ViewBag.Loan != null)
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Loans, "Target Loan", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Loans", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Loans, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Open" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to Business Accounts", "Index")
+</div>

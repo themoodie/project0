@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4a149f0376aa4e5bae1d1aec1cf3f41c" Name="Diagram1">
+        <EntityTypeShape EntityType="BankingEntities.BusinessAccount" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankingEntities.CheckingAccount" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankingEntities.Customer" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankingEntities.Loan" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankingEntities.TermDeposit" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <AssociationConnector Association="BankingEntities.FK_BusinessAccounts_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="BankingEntities.FK_CheckingAccounts_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="BankingEntities.FK_Loans_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="BankingEntities.FK_TermDeposits_Customers" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BankingEntities.Transaction" Width="1.5" PointX="5.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
